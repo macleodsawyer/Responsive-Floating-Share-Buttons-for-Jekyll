@@ -1,15 +1,20 @@
-jQuery Floating Social Share
+jQuery Floating Social Share + Counters
 ================================
 
-Simple jQuery floating social media sharer plugin works with Font-Awesome. Currently supported platforms are Facebook, Twitter, Linkedin, Pinterest and Google Plus with counter feature, StumbleUpon and Email without counter feature.
+Simple jQuery floating social media sharer plugin that works with Jekyll with counters.
+
+Currently supported networks:
+- Facebook
+- Twitter
+- Linkedin
+- Pinterest 
+- Google Plus
+- StumbleUpon 
+- Email
 
 ## Getting Started
 
-Install via bower and include from your `bower_components` folder.
-
-`bower install jquery-floating-social-share`
-
-Or install via <a target="_blank" href="https://github.com/ozdemirburak/jquery-floating-social-share/archive/master.zip">zip</a>, then include jQuery and Font-Awesome and the plugin on a page.
+Insert this into your header (change source paths accordingly)
 
 ```html
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -18,18 +23,27 @@ Or install via <a target="_blank" href="https://github.com/ozdemirburak/jquery-f
 <script type="text/javascript" src="./dist/js/jquery.floating-social-share.min.js"></script>
 ```
 
-Finally, call the `floatingSocialShare` method on body with your custom options.
+## Full Example
+
+Insert this directly into your footer / bottom of your posts layout.
 
 ```html
 <script>
 	$("body").floatingSocialShare({
- 		buttons: ["facebook","twitter","google-plus"],
-        text: "share with: "
+		place: "top-left", // alternatively top-right
+		counter: true, // set to false for hiding the counters of pinterest, facebook, twitter, linkedin and google-plus
+		buttons: ["facebook","twitter","google-plus","linkedin","stumbleupon","envelope"], // all of the currently avalaible social buttons
+		title: "{{ page.title }}", // your title, default is current post's title
+		url: window.location.href,  // your url, default is current page's url
+		text: "Share with ", // the title of a tags
+		description: $("meta[name='description']").attr("content"), // your description, default is current page's description
+		popup_width: 400, // the sharer popup width, default is 400px
+		popup_height: 300 // the sharer popup height, default is 300px
 	});
 </script>
 ```
 
-#### [Live Demo](http://onlinealarmkur.com)
+#### [Live Demo](http://macleodsawyer.com)
 
 ## Options
 
@@ -43,22 +57,8 @@ Finally, call the `floatingSocialShare` method on body with your custom options.
 * **popup_width**: `Number` *(`400` by default)* Sets the sharer popup's width.
 * **popup_height**: `Number` *(`300` by default)* Sets the sharer popup's height.
 
-## Full Example
-
-```javascript
-$("body").floatingSocialShare({
-	place: "top-left", // alternatively top-right
-    counter: true, // set to false for hiding the counters of pinterest, facebook, twitter, linkedin and google-plus
-    buttons: ["facebook","twitter","google-plus","linkedin","envelope","stumbleupon","pinterest"], // all of the currently avalaible social buttons
-    title: document.title, // your title, default is current page's title
-    url: window.location.href,  // your url, default is current page's url
-    text: "share with ", // the title of a tags
-    description: $("meta[name='description']").attr("content"), // your description, default is current page's description
-    popup_width: 400, // the sharer popup width, default is 400px
-    popup_height: 300 // the sharer popup height, default is 300px
-});
-```
 
 ## License
-Copyright &copy; [Burak Özdemir](http://burakozdemir.co.uk)<br>
+Jekyll Version Copyright &copy; [Macleod Sawyer](http://macleodsawyer.com)<br>
+Original Copyright &copy; [Burak Özdemir](http://burakozdemir.co.uk)<br>
 Licensed under the MIT license.
